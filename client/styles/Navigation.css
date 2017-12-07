@@ -1,0 +1,60 @@
+.left-nav
+{
+        height:91vh;
+        text-align: left;
+        background-color: rgb(22, 50, 92);        
+        box-shadow: 0px 6px 9px 1px rgba(131, 123, 123, 0.48);
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        color: white;  
+}
+.left-nav *
+{
+color:white;
+background: inherit !important;
+}
+.list-group-item .fa{
+    min-width: 28px;
+    font-size: 2vh;
+}
+.navbar-default{
+    border-color: transparent !important;
+}
+.list-group-item{
+    border: none;
+    padding: 4px 0px !important;
+    background: inherit !important;
+}
+.container{
+    width:inherit;   
+}
+
+
+.left-nav::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: transparent;
+    cursor: pointer;
+}
+
+.left-nav::-webkit-scrollbar-thumb
+{
+	background-color: aliceblue;
+    border-radius:2px;
+    cursor: pointer;
+
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background: #061C3F;
+}
+.list-group-item
+{
+    content: inherit;
+}
+#right {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 90vh;
+}
+

@@ -1,0 +1,11 @@
+{
+"presets": ["react-native"],
+"plugins": [
+      ["module-resolver", {
+        "root": ["./client/js"],
+        "alias": {
+            
+        }
+      }]
+    ]
+}

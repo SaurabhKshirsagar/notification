@@ -1,0 +1,505 @@
+{
+  "schemas": {
+    "EntitySchemas": {
+      "PortalSettings": {
+        "Description": "PortalSettings",
+        "Id": "57e22852911f36b80f5e1f29",
+        "Name": "PortalSettings",
+        "Title": "PortalSettings",
+        "Unique": "u",
+        "Version": "1.0",
+        "_revision": 1,
+        "_schemaVersion": "1.0",
+        "attributes": [
+          {
+            "id": "loginPath",
+            "type": "string",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "loginPath",
+            "Required": "true"
+          },
+          {
+            "id": "appsPath",
+            "type": "string",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "appsPath",
+            "Required": "true"
+          }
+        ]
+      },
+      "Link": {
+        "Description": "Link",
+        "Id": "57e22852911f36b80f5e54ki",
+        "Name": "Link",
+        "Title": "Link",
+        "Unique": "u",
+        "Version": "1.0",
+        "_revision": 1,
+        "_schemaVersion": "1.0",
+        "attributes": [
+          {
+            "id": "Search",
+            "type": "string",
+            "Title": "Search",
+            "Path": "search",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "Search",
+            "Required": "true"
+          }
+        ]
+      },
+      "Module": {
+        "Description": "Module",
+        "Id": "57e22852911f36b80f5ekd4i",
+        "Name": "Module",
+        "Title": "Module",
+        "Unique": "u",
+        "Version": "1.0",
+        "_revision": 1,
+        "_schemaVersion": "1.0",
+        "attributes": [
+          {
+            "id": "caption",
+            "type": "string",
+            "Title": "Caption",
+            "Path": "Caption",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "Caption",
+            "Required": "true"
+          },
+          {
+            "id": "description",
+            "type": "string",
+            "Title": "Description",
+            "Path": "Description",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "Description",
+            "Required": "true"
+          },
+          {
+            "id": "name",
+            "type": "string",
+            "Title": "Name",
+            "Path": "Name",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "Name",
+            "Required": "true"
+          },
+          {
+            "id": "icon",
+            "type": "string",
+            "Title": "Icon",
+            "Path": "Icon",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "Icon",
+            "Required": "true"
+          },
+          {
+            "id": "id",
+            "type": "string",
+            "Title": "id",
+            "Path": "id",
+            "MaxLength": "",
+            "MinLength": "",
+            "Name": "Icon",
+            "Required": "true"
+          }
+        ]
+      }
+    }
+  },
+  "entities": {
+    "portalsettings": {
+      "0": {
+        "loginPath": "/login",
+        "appsPath": "/apps"
+      }
+    },
+    "modules": {
+      "human resources": {
+        "id": "humanresources _123456",
+        "name": "Human Resources",
+        "caption": "Human Resources",
+        "description": "HR",
+        "icon": "fa fa-male"
+      },
+      "recruitment": {
+        "id": "recruitment_123456",
+        "name": "Recruitment",
+        "caption": "Recruitment",
+        "description": "Recruitment",
+        "icon": "fa fa-users"
+      },
+      "performance reviews": {
+        "id": "performancereviews_123456",
+        "name": "Performance Reviews",
+        "caption": "Performance Reviews",
+        "description": "Performance Reviews",
+        "icon": "fa fa-line-chart"
+      },
+      "compliance and security": {
+        "id": "compliance_123456",
+        "Name": "Compliance and Security",
+        "caption": "Compliance and Security",
+        "description": "Compliance and Security",
+        "icon": "fa fa-check-square-o"
+      }
+    }
+  },
+  "auth": {
+    "Roles": {
+      "author": [
+        "James",
+        "Kyle"
+      ],
+      "admin": [
+        "Bruce"
+      ]
+    },
+    "Users": [
+      {
+        "James": {
+          "roles": [
+            "author"
+          ]
+        }
+      },
+      {
+        "Kyle": {
+          "roles": [
+            "author"
+          ]
+        }
+      },
+      {
+        "Bruce": {
+          "roles": [
+            "admin"
+          ]
+        }
+      }
+    ]
+  },
+  "assets": {
+    "Views": {
+      "Portal": {
+        "type": "view",
+        "props":{
+            "vars": {
+              "PortalSettings": {
+                "type": "PortalSettings",
+                "defaultValue": ""
+              }
+            },
+            "actions": {
+              "create": [
+                {
+                  "type": "callExpression",
+                  "value": "assets.loadEntity('PortalSettings' , 0 )",
+                  "target": "path('.PortalSettings')"
+                }
+              ],
+              "load": [
+                {
+                  "type": "callExpression",
+                  "value": "navigation.browseTo(path('.PortalSettings.appsPath'))",
+                  "precondition": {
+                    "type": "BinaryExpression",
+                    "value": "auth.isUserAthenticated() && navigation.getCurrentPath() == '/'"
+                  }
+                },
+                {
+                  "type": "callExpression",
+                  "value": "navigation.browseTo(path('.PortalSettings.loginPath'))",
+                  "precondition": {
+                    "type": "BinaryExpression",
+                    "value": "auth.isUserAthenticated()==false"
+                  }
+                }
+              ]
+            },
+            "children": [
+              {
+                "type": "view",
+                "props":{
+                  "ref": "header"
+                }
+              },
+              {
+                "type": "view",
+                "props":{
+                  "ref": "Views/Login",
+                  "path": {
+                    "pattern": "/login",
+                    "exactly": true
+                  }
+                }
+              },
+              {
+                "type": "view",
+                "props":{
+                  "ref": "Views/Register",
+                  "path": {
+                    "pattern": "/register",
+                    "exactly": true
+                  }
+                }
+              },
+              {
+                "type": "view",
+                "props":{
+                  "ref": "Views/PasswordRecovery",
+                  "path": {
+                    "pattern": "/recovery",
+                    "exactly": true
+                  },
+                  "security": {
+                    "guest": false
+                  }
+                }
+              },
+              {
+                "type": "view",
+                "props":{
+                  "ref": "Views/Modules",
+                  "path": {
+                    "pattern": "/apps",
+                    "exactly": true
+                  },
+                  "security": {
+                    "guest": false
+                  }
+                }
+              },
+              {
+                "type": "view",
+                "props":{
+                  "ref": "Views/Module",
+                  "path": {
+                    "pattern": "/apps/:appid",
+                    "exactly": true,
+                    "params": {
+                      "AppId": "appid"
+                    }
+                  },
+                  "security": {
+                    "guest": false
+                  }
+                }
+              },
+              {
+                "type": "view",
+                "props":{
+                  "ref": "Views/Footer"
+                }
+              }
+            ]
+        }
+      },
+      "Modules": {
+        "type": "view",
+        "props":{
+          "vars": {
+            "UserModules": {
+              "type": "List",
+              "of": "Module",
+              "defaultValue": null
+            }
+          },
+          "actions": {
+            "create": [
+              {
+                "type": "callExpression",
+                "value": "assets.getModules()",
+                "target": "path('.UserModules')"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "List",
+              "props":{
+                "dataSource": ".UserModules",
+                "item": {
+                  "type": "Tile",
+                  "label": ".Header.Title",
+                  "icon": ".UI.icon"
+                },
+                "actions": {
+                  "create": [
+                    {
+                      "type": "callExpression",
+                      "value": "navigation.browseTo(path('.id'))"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Module": {
+        "type": "view",
+        "props":{
+          "hasOwnScope": true,
+          "vars": {
+            "CurrentModule": {
+              "type": "Module",
+              "defaultValue": null
+            }
+          },
+          "params": {
+            "AppId": {
+              "type": "string",
+              "defaultValue": null
+            }
+          },
+          "actions": {
+            "create": [
+              {
+                "type": "callExpression",
+                "value": "assets.getModule(path('.Appid'))",
+                "target": "path('.CurrentModule')"
+              },
+              {
+                "type": "callExpression",
+                "value": "navigation.browseTo(path('.CurrentModule.DefaultLink'))"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "view",
+              "props":{
+                "ref": "Views/PortalLeftNav",
+                "params": {
+                  "Items": ".CurrentModule.Items"
+                }
+              }
+            },
+            {
+              "type": "view",
+              "props":{
+                "ref": "Views/PortalContent",
+                "path": {
+                  "pattern": ":formid",
+                  "exactly": "true",
+                  "params": {
+                    "FormID": ".formid"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "PortalContent": {
+        "type": "view",
+        "props":{
+          "params": {
+            "FormID": {
+              "type": "string"
+            }
+          },
+          "children": [
+            {
+              "type": "view",
+              "props":{
+                "ref": "Views/.FormID"
+              }
+            }
+          ]
+        }
+      },
+      "PortalLeftNav": {
+        "type": "view",
+        "props":{
+        "params": {
+          "Items": {
+            "type": "List",
+            "of": "Link",
+            "defaultValue": null
+          }
+
+        },
+        "children": [
+          {
+            "type": "List",
+            "props":{
+            "dataSource": ".Items",
+            "item": {
+              "type": "view",
+               "props":{
+              "ref": "Views/PortalNavLink",
+              "params": {
+                "Path": ".Path",
+                "Title": ".Title"
+              }
+               }
+            }
+            }
+          }
+        ]
+        }
+      },
+      "PortalNavLink": {
+        "type": "View",
+        "props":{
+        "params": {
+          "Path": {
+            "type": "string",
+            "required": true,
+            "defaultValue": ""
+          },
+          "Title": {
+            "type": "string",
+            "required": true,
+            "defaultValue": ""
+          }
+        },
+        "children": [
+          {
+            "type": "Link",
+            "props":{
+            "to": ".Path",
+            "activeClassName": "something",
+            "title": ".Title",
+            "children": [
+              {
+                "type": "List",
+                 "props":{
+                "dataSource": ".Children",
+                "precondition": {
+                  "op": "isEmpty",
+                  "params": {
+                    "item": ".Children"
+                  }
+                },
+                "item": {
+                  "type": "view",
+                   "props":{
+                  "ref": "Views/PortalNavLink",
+                  "params": {
+                    "Path": ".Path",
+                    "Title": ".Title"
+                  }
+                }
+                }
+              }
+              }
+            ]
+            }
+          }
+        ]
+        }
+      }
+    }
+  }
+}

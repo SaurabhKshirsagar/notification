@@ -1,0 +1,181 @@
+.overlay-example .dev-toggle {
+    height: 30px;
+    width: 30px;
+    background: white;
+    padding: 3px;
+    border-radius: 50%;
+    border: 2px solid rgba(51, 51, 51, 0.6);
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.dev-toggle span {
+    font-size: 14px;
+    left: 4px;
+    color:black;
+}
+
+.overlay-example {
+    margin-left: 10px;    width: 0px;
+    position: absolute;
+    bottom: 21px;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    border-color: white;
+}
+
+.dev-jsonTree {
+    left: 32px!important;
+    top: 5px;
+    position: relative;
+    width: 350px;
+    max-width: 1300px;
+    overflow: auto;
+    background-color: white;
+    box-shadow: 0px 0px 6px 0px;
+    max-height: 300px;
+    height: 300px;
+}
+
+.dev-jsonTree>ul {
+    background-color: rgb(255, 255, 255)!important;
+}
+
+.dev-jsonTree>ul label {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.55)!important;
+    font-family: monospace;
+    margin-left: 8px!important;
+}
+
+.dev-jsonTree>ul label:hover {
+    color: black!important;
+}
+
+.dev-jsonTree .form-control {
+    margin-top: 2px!important;
+    display: block!important;
+    margin-left: 2px!important;
+    width: 99%!important;
+    height: 25px!important;
+    padding: 4px 6px!important;
+    font-size: 12px!important;
+}
+
+span.tree-object-label {
+    font-size: 12px;
+    position: relative;
+    float: left;
+    left: 21px;
+    top: 3px;
+    color: green;
+    font-weight: 700;
+}
+
+span.tree-array-label {
+    font-size: 12px;
+    position: relative;
+    float: left;
+    left: 21px;
+    top: 3px;
+    /*color:blue;*/
+    color: green;
+    font-weight: 700;
+}
+.tree-customType-label{
+     font-size: 12px;
+    position: relative;
+    float: left;
+    left: 21px;
+    top: 3px;
+    /*color:blue;*/
+    color: green;
+    font-weight: 700;
+}
+
+.tree-node{
+    margin-left: 10px;
+    list-style: none;
+}
+
+span.tree-string-label {
+    /*color: #5cb85c;*/
+    color: green;
+    font-size: 12px;
+    position: relative;
+    float: left;
+    left: 21px;
+    top: 5px;
+    font-weight: 700;
+}
+
+.tree-label{
+    margin-left: 22px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.55)!important;
+    font-family: monospace;
+    -webkit-user-select: inherit;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tree-string-var{
+    display: inline;
+    word-wrap: break-word;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.tree-node .fa{
+    margin-right: -5px;
+}
+.inferred{
+    font-style: oblique;
+    color:green;
+    left:18px!important;
+}
+span.tree-string-label.inferred{
+    top:3px!important;
+}
+.tree-label:hover{
+    color: black!important;
+}
+.tree-error{
+    color:red;
+    font-size: 12px;
+    position: relative;
+    float: left;
+    left: 8px;
+    top: 5px;
+    font-weight: 700;
+    width: 0px;
+}
+.tree-null-char{
+    font-style: oblique;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+.tree-error {
+    color: red;
+    font-size: 12px;
+    position: relative;
+    float: left;
+    left: 3px;
+    top: 5px;
+    font-weight: 700;
+    width: 0px;
+}
+.tree-node .fa {
+    margin-right: -5px;
+    float: left;
+    position: relative;
+    left: 14px;
+    top: 6px;
+}

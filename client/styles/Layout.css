@@ -1,0 +1,47 @@
+footer{
+      background:lightgrey;     
+      color:black;      
+      text-align:center;
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+}
+
+
+header #ab{
+    color: white;
+}
+header
+{      
+      background:#0072c6;
+      height: 6vh;      
+      color:white;      
+      top: 0px;
+      position: absolute;     
+      width: 100%;
+      font-family: ""Helvetica Neue", Helvetica, Arial, sans-serif";
+}
+header img{
+    float: right;     
+    height:6vh;
+    width:6vh;
+}
+
+.welCome{
+    font-size: 4vh;
+    top: 2vh;
+    padding-left: 1vh;  
+    
+}
+.ContentDiv
+{
+    display: block;
+    top: 6vh;
+    position: absolute;
+    margin-left: 0px;
+    width: 100%;
+}
+.row{
+    width: inherit;
+}
+
